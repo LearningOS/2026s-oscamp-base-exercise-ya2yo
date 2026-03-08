@@ -119,7 +119,7 @@ for entry in "${exercises[@]}"; do
             ((SKIP++))
         elif cargo test -p "$package" --target "$RISCV64_TARGET" --quiet -- --nocapture 2>/dev/null; then
             echo -e "${GREEN}PASS${NC}"
-            ((PASS++))
+            ((++PASS))
         else
             echo -e "${RED}FAIL${NC}"
             ((FAIL++))
@@ -127,7 +127,7 @@ for entry in "${exercises[@]}"; do
     else
         if cargo test -p "$package" --quiet 2>/dev/null; then
             echo -e "${GREEN}PASS${NC}"
-            ((PASS++))
+            ((++PASS))
         else
             echo -e "${RED}FAIL${NC}"
             ((FAIL++))
